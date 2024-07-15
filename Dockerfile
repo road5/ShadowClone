@@ -1,7 +1,7 @@
 # Define custom function directory
 ARG FUNCTION_DIR="/function"
 
-FROM python:3.10-buster as build-image
+FROM python:3.11.9-bookworm as build-image
 
 # Include global arg in this stage of the build
 ARG FUNCTION_DIR
@@ -39,10 +39,10 @@ RUN pip install \
         cloudpickle \
         ps-mem \
         tblib \
-        delegator.py
+        delegator.py \
 		invoke
 
-FROM python:3.10-buster
+FROM python:3.11.9-bookworm
 
 # Include global arg in this stage of the build
 ARG FUNCTION_DIR
